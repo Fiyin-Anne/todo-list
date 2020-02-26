@@ -1,15 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>To-do List</h1>
-<form>
-    <ul>
-        <li><input type="text" ></li><br>
-        <li><input type="text"></li><br>
-        <li><input type="text"></li><br>
-        <li><input type="text"></li><br>
-        <li><input type="text"></li><br>
-    </ul>
-</form>
+<h1 style="text-align:center;">To-do List</h1>
+<p>Welcome back {{user}}</p>
 
+<p>New to this app?</p> 
+<a href="{{ signup.html }}">Sign up here</a><br>
+<a href="{{ login.html }}">Login</a>
 {% endblock%}

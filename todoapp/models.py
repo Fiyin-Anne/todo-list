@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.forms import UserCreationForm, forms
 
 from django.utils import timezone
 
@@ -10,4 +11,11 @@ class Todo(models.Model):
     created = models.DateField(default=timezone.now().strftime("%Y-%m-%d")) # a date
     due_date = models.DateField(default=timezone.now().strftime("%Y-%m-%d")) # a date
     def __str__(self):
-        return self.name
+        return self.title
+
+class Person(UserCreationForm):
+    firstname = forms.CharField(max_length=30)
+    lastname = forms.CharField(max_length=30)
+    email = forms.EmailField()
+
+

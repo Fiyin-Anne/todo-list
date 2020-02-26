@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>To-do List</title>
-    <style>
+ 
+    <link rel="stylesheet" href= '{% static "css/struct.css" %}'>
+    <!-- <style>
         input{
         border-radius: 15px;
         border-color: blue;
@@ -13,9 +16,9 @@
         margin-bottom:5px;
         outline: none;
         }
-      </style>
+      </style> -->
 </head>
-<body bgcolor="sky-blue">
+<body>
     {% block content %}
     
     {% endblock %}
