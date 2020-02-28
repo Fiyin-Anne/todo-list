@@ -2,9 +2,24 @@
 
 {% block content %}
 <h1 style="text-align:center;">To-do List</h1>
-<p>Welcome back {{user}}</p>
 
-<p>New to this app?</p> 
-<a href="{{ signup.html }}">Sign up here</a><br>
-<a href="{{ login.html }}">Login</a>
+<form method="POST" action="/">
+    {% csrf_token %}
+    {{form.title}}
+    <input type="submit" name="Create Task">
+</form>
+
+{% for task in todos %}
+    <div>
+        
+        <!-- <p>{{ task}}</p> -->
+        {% if task.complete == True %}
+        <strike>{{task}}</strike>
+        {% else %}
+        <span>{{task}}</span>
+        {% endif %}
+        <a href="{% url 'edit_task' task.id %}">Edit</a>
+        <a href="{% url 'delete' task.id %}">Delete</a>
+    </div>
+{% endfor %}
 {% endblock%}
