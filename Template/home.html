@@ -1,25 +1,45 @@
 {% extends "base.html" %}
 
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href= '{% static "css/struct.css" %}'>
+
 {% block content %}
 <h1 style="text-align:center;">To-do List</h1>
 
-<form method="POST" action="/">
-    {% csrf_token %}
-    {{form.title}}
-    <input type="submit" name="Create Task">
-</form>
+<h2>Welcome, {{request.user}}!</h2>
+<div class="input">
+    <form method="POST" action="/">
+        {% csrf_token %}
+        {{form.title}}
+        <input type="submit" name="Create Task" placeholder="Add Task">
+    </form>
+</div>
+
+<div id="todo">
 
 {% for task in todos %}
-    <div>
-        
-        <!-- <p>{{ task}}</p> -->
-        {% if task.complete == True %}
+    {% if task.complete == True %}
+    <div class="todo">
         <strike>{{task}}</strike>
-        {% else %}
+    </div>
+    {% else %}
+    <div class="todo">
         <span>{{task}}</span>
-        {% endif %}
-        <a href="{% url 'edit_task' task.id %}">Edit</a>
-        <a href="{% url 'delete' task.id %}">Delete</a>
+    </div>
+    
+    {% endif %}
+
+    <div id="editDelete">
+        <a href="{% url 'edit_task' task.id %}"><button>Edit</button></a>
+        <a href="{% url 'delete' task.id %}"><button id="rightfloatbutton">Delete</button></a>
     </div>
 {% endfor %}
+</div> 
+
+<div id="logout">
+    <a href="{% url 'logout'  %}">
+        <button id="rightfloatbutton">Logout</button>
+    </a>
+
 {% endblock%}

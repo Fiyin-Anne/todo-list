@@ -1,39 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- <p>Sign Up.</p>
+<h1>Register</h1>
 
+<div class="signup">
+  <form method="POST" action="">
+    {% csrf_token %}
+    
+    <p>{{form.username.label}}:
+    {{form.username}}</p>
 
-<form action="signUp" method="POST">
-    Name:<br>
-    <input type="text" name="first_name"></li><br>
-    D.O.B:<br>
-    <input type="date"></li><br>
-    Email: <br>
-    <input type="email"></li><br>
-    Password: <br>
-    <input type="password"></li><br>
-    Confirm password:<br>
-    <input type="password"></li><br>
-    <input type="submit">
-</form>
--->
+    <p>{{form.email.label}}:
+    {{form.email}} </p>
 
-<h2>Sign up Form</h2>
-<form method="post" action="signup">
-  {% csrf_token %}
-  {% for field in form %}
-    <p>
-      {{ field.label_tag }}<br>
-      {{ field }}
-      {% if field.help_text %}
-        <small style="color: grey">{{ field.help_text }}</small>
-      {% endif %}
-      {% for error in field.errors %}
-        <p style="color: red">{{ error }}</p>
-      {% endfor %}
-    </p>
-  {% endfor %}
-  <button type="submit">Sign up</button>
-</form>
+    <p>{{form.password1.label}}:
+    {{form.password1}} </p>
+
+    <p>{{form.password2.label}}:
+    {{form.password2}}</p>
+
+    <input type="submit" name="Create User">
+  </form>
+</div>
 {% endblock %} 

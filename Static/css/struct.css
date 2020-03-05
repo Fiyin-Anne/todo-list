@@ -1,6 +1,52 @@
-body {
-    background-color: antiquewhite;
+#logout {
+    float: left;
+    clear: left;
+    width: 36%;
+    margin-top: 10px;
 }
-.signup {
-    align-content: center;
+#rightfloatbutton {
+    float: right;
+}
+#editDelete {
+    text-decoration: none;
+    padding-top: 3px;
+    padding-bottom: 8px;
+}
+#todo {
+    width: 33%;
+    height: 45%;
+    border: 2px solid rgb(6, 122, 175);
+    padding: 15px;
+    background: lightblue;
+    float: left;
+}
+.todo {
+    background-color: rgba(212, 241, 255, 0.774);
+    
+    padding-bottom: 3px;
+}
+
+button {
+    border-radius: 5px;
+    background-color: wheat;
+}
+body {
+    background-color: rgb(224, 236, 255);
+    margin-left: 10px;
+    margin: solid orange;
+}
+
+a {
+    color: rgb(226, 55, 42);
+    text-decoration: none;
+}
+
+input {
+    border-color: deeppink;
+    border-radius: 2px;
+    margin-bottom: 20px;
+}
+
+h1, h2 {
+    color: teal;
 }
